@@ -301,7 +301,7 @@
     #include <driver/gpio.h>
     #include <driver/spi_master.h>
     #include <driver/uart.h>
-    #include <esp32/clk.h>
+    #include <esp_private/esp_clk.h>
     #include <hal/cpu_ll.h>
 
     #define SW_CAPABLE_PLATFORM false
@@ -323,7 +323,7 @@
     using HardwareSerial = uart_port_t;
 
     inline void delay(const uint16_t ms) {
-        ets_delay_us( ms * 1000 );
+        vTaskDelay(ms / portTICK_PERIOD_MS);
     }
 
     namespace TMC_HAL {
