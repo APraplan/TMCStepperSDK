@@ -1,4 +1,4 @@
-#include "../TMCStepper.h"
+#include "TMCStepper.h"
 
 TMC2209Stepper::TMC2209Stepper(HardwareSerial &SerialPort, const float RS, const uint8_t addr) :
 	TMC_UART(&SerialPort, addr),

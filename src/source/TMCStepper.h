@@ -6,19 +6,19 @@
 #pragma GCC diagnostic ignored "-Wunused-function"
 #pragma GCC diagnostic ignored "-Wunused-variable"
 
-#include "source/TMC_HAL.h"
+#include "TMC_HAL.h"
 
 #pragma GCC diagnostic pop
 
-#include "source/TMC2660_bitfields.h"
+#include "TMC2660_bitfields.h"
 
-#include "source/interfaces/TMC2130.hpp"
-#include "source/interfaces/TMC2160.hpp"
-#include "source/interfaces/TMC5130.hpp"
-#include "source/interfaces/TMC5160.hpp"
-#include "source/interfaces/TMC2208.hpp"
-#include "source/interfaces/TMC2209.hpp"
-#include "source/interfaces/TMC2300.hpp"
+#include "interfaces/TMC2130.hpp"
+#include "interfaces/TMC2160.hpp"
+#include "interfaces/TMC5130.hpp"
+#include "interfaces/TMC5160.hpp"
+#include "interfaces/TMC2208.hpp"
+#include "interfaces/TMC2209.hpp"
+#include "interfaces/TMC2300.hpp"
 
 #define TMCSTEPPER_VERSION 0x000703 // v0.7.3
 
@@ -30,8 +30,8 @@ struct TMC2208Stepper;
 struct TMC2209Stepper;
 struct TMC2300Stepper;
 
-#include "source/TMC_SPI.hpp"
-#include "source/TMC_UART.hpp"
+#include "TMC_SPI.hpp"
+#include "TMC_UART.hpp"
 
 template<typename TYPE>
 class TMCStepper {
@@ -146,7 +146,7 @@ namespace TMC5160_n { using TMC2160_n::TMC_RMS; }
 namespace TMC2208_n { using TMC2130_n::TMC_RMS; }
 namespace TMC2209_n { using TMC2130_n::TMC_RMS; }
 
-#include "source/interfaces/TMCStepper.hpp"
+#include "interfaces/TMCStepper.hpp"
 
 class TMC2130Stepper :
 	public TMCStepper_n::TMC_SPI,

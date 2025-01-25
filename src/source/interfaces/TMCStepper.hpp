@@ -1,5 +1,5 @@
 
-#include "../../TMCStepper.h"
+#include "../TMCStepper.h"
 
 /*
   Requested current = mA = I_rms/1000

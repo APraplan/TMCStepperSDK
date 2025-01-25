@@ -2,7 +2,7 @@
 #pragma once
 
 #include <stdint.h>
-#include "../TMCStepper.h"
+#include "TMCStepper.h"
 #include "TMC_HAL.h"
 
 namespace TMC_HAL {

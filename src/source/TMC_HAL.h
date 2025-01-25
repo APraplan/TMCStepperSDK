@@ -244,56 +244,56 @@
 
         void delay(uint32_t ms);
 
-#elif defined(__linux__) // Tested with RaspberryPi 3B
+// #elif defined(__linux__) // Tested with RaspberryPi 3B
 
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <stdint.h>
-    #include <iostream>
-    #include <string.h>
-    #include <unistd.h>
-    #include <fcntl.h>
-    #include <errno.h>
-    #include <sys/time.h>
-    #include <termios.h>
-    #include <sys/ioctl.h>
-    #include <sys/types.h>
-    #include <sys/stat.h>
-    #include <gpiod.hpp>
-    #include <cstdlib>
-    #include <getopt.h>
-    #include <linux/ioctl.h>
-    #include <linux/types.h>
-    #include <linux/spi/spidev.h>
-    #include <sys/time.h>
+//     #include <stdio.h>
+//     #include <stdlib.h>
+//     #include <stdint.h>
+//     #include <iostream>
+//     #include <string.h>
+//     #include <unistd.h>
+//     #include <fcntl.h>
+//     #include <errno.h>
+//     #include <sys/time.h>
+//     #include <termios.h>
+//     #include <sys/ioctl.h>
+//     #include <sys/types.h>
+//     #include <sys/stat.h>
+//     #include <gpiod.hpp>
+//     #include <cstdlib>
+//     #include <getopt.h>
+//     #include <linux/ioctl.h>
+//     #include <linux/types.h>
+//     #include <linux/spi/spidev.h>
+//     #include <sys/time.h>
 
-    namespace TMC_HAL {
-        using PinDef = ::gpiod::line;
+//     namespace TMC_HAL {
+//         using PinDef = ::gpiod::line;
 
-        struct PinCache {
-            explicit PinCache(const PinDef _pin) :
-                pin(_pin)
-                {}
-            const PinDef pin;
-            static constexpr bool LOW = 0;
-            static constexpr bool HIGH = 1;
-        };
+//         struct PinCache {
+//             explicit PinCache(const PinDef _pin) :
+//                 pin(_pin)
+//                 {}
+//             const PinDef pin;
+//             static constexpr bool LOW = 0;
+//             static constexpr bool HIGH = 1;
+//         };
 
-        struct HW_port {
-            HW_port(std::string_view port);
-            ~HW_port() { ::close(fd); }
-            int fd = -1;
-        };
+//         struct HW_port {
+//             HW_port(std::string_view port);
+//             ~HW_port() { ::close(fd); }
+//             int fd = -1;
+//         };
 
-        // Ensure CS pin timings requirements
-        inline void delay_ns(unsigned int ns) {
-            const uint_fast16_t us = ns / 1000 + 1; // No API for ns sleep
-            usleep(us);
-        }
-    }
+//         // Ensure CS pin timings requirements
+//         inline void delay_ns(unsigned int ns) {
+//             const uint_fast16_t us = ns / 1000 + 1; // No API for ns sleep
+//             usleep(us);
+//         }
+//     }
 
-    using SPIClass = TMC_HAL::HW_port;
-    using HardwareSerial = TMC_HAL::HW_port;
+//     using SPIClass = TMC_HAL::HW_port;
+//     using HardwareSerial = TMC_HAL::HW_port;
 
 #elif defined(IDF_VER)
 
