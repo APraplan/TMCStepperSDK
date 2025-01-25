@@ -3,7 +3,7 @@
 
 #include <hardware/spi.h>
 #include <hardware/timer.h>
-#include "../../TMCStepper.h"
+#include "../TMCStepper.h"
 
 using namespace TMCStepper_n;
 using namespace TMC_HAL;

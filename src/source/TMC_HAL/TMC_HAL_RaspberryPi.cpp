@@ -6,7 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include "../../TMCStepper.h"
+#include "../TMCStepper.h"
 
 using namespace std;
 using namespace TMCStepper_n;
